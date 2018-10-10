@@ -10,6 +10,8 @@ namespace WinTail
     class ConsoleReaderActor : UntypedActor
     {
         public const string ExitCommand = "exit";
+        //public const string ReadCommand = "read";
+        //public const string ContinueCommnad = "continue";
         private IActorRef _consoleWriterActor;
 
         public ConsoleReaderActor(IActorRef consoleWriterActor)
@@ -30,9 +32,20 @@ namespace WinTail
 
             // send input to the console writer to process and print
             // YOU NEED TO FILL IN HERE
+            //if (String.Equals(message, ReadCommand, StringComparison.OrdinalIgnoreCase)) {
+                _consoleWriterActor.Tell(read);
+                Self.Tell("continue");
+            //}
 
-            // continue reading messages from the console
-            // YOU NEED TO FILL IN HERE
+            //// continue reading messages from the console
+            //// YOU NEED TO FILL IN HERE
+            //if (string.Equals(message, ContinueCommnad, StringComparison.OrdinalIgnoreCase)
+            //{
+            //    _consoleWriterActor.Tell(read);
+            //    Self.Tell("continue");
+            //}
+
+
         }
 
     }
