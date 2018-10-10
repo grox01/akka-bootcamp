@@ -12,7 +12,7 @@ namespace WinTail
         {
             // initialize MyActorSystem
             // YOU NEED TO FILL IN HERE
-            MyActorSystem = ActorSystem.Create("Sys");
+            MyActorSystem = ActorSystem.Create("MyActorSystem");
 
             PrintInstructions();
 
@@ -26,7 +26,7 @@ namespace WinTail
 
             // tell console reader to begin
             //YOU NEED TO FILL IN HERE
-            consoleReaderActor.Tell("start");
+            consoleReaderActor.Tell(ConsoleReaderActor.StartCommand);
 
             // blocks the main thread from exiting until the actor system is shut down
             MyActorSystem.WhenTerminated.Wait();
