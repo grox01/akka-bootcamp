@@ -13,11 +13,11 @@ namespace WinTail
         public const string StartCommand = "start";
         public const string ReadCommand = "read";
         public const string ContinueCommnad = "continue";
-        private IActorRef _consoleWriterActor;
+        //private IActorRef _consoleWriterActor;
 
-        public ConsoleReaderActor(IActorRef consoleWriterActor)
+        public ConsoleReaderActor()
         {
-            _consoleWriterActor = consoleWriterActor;
+            //_consoleWriterActor = consoleWriterActor;
         }
 
         protected override void OnReceive(object message)
@@ -77,7 +77,8 @@ namespace WinTail
                 return;
             }
 
-            _consoleWriterActor.Tell(message);
+            Context.ActorSelection("akka://MyActorSystem/user/validationActor").Tell(message);
+            //_consoleWriterActor.Tell(message);
 
 
 
